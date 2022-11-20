@@ -85,6 +85,7 @@ public abstract class AbstractWebSocketEndpoint extends ConcurrentWebSocketHandl
 
     @Override
     public void onMessage(WebSocketSession session, WebSocketMessage<?> message) throws Exception {
+        log.info("websocket onMessage: {}", message);
         if (message instanceof TextMessage) {
             handleTextMessage(session, (TextMessage) message);
 
@@ -100,6 +101,7 @@ public abstract class AbstractWebSocketEndpoint extends ConcurrentWebSocketHandl
     }
 
     private void handleTextMessage(WebSocketSession session, TextMessage webSocketMessage) throws Exception {
+        log.info("websocket handleTextMessage: {}", webSocketMessage);
         String incomingString = webSocketMessage.getPayload();
         String chargeBoxId = getChargeBoxId(session);
 
@@ -124,6 +126,7 @@ public abstract class AbstractWebSocketEndpoint extends ConcurrentWebSocketHandl
 
     @Override
     public void onOpen(WebSocketSession session) throws Exception {
+        log.info("websocket onOpen: {}", session);
         String chargeBoxId = getChargeBoxId(session);
 
         WebSocketLogger.connected(chargeBoxId, session);
@@ -155,6 +158,7 @@ public abstract class AbstractWebSocketEndpoint extends ConcurrentWebSocketHandl
 
     @Override
     public void onClose(WebSocketSession session, CloseStatus closeStatus) throws Exception {
+        log.info("websocket onClose: {}", session);
         String chargeBoxId = getChargeBoxId(session);
 
         WebSocketLogger.closed(chargeBoxId, session, closeStatus);
@@ -177,6 +181,7 @@ public abstract class AbstractWebSocketEndpoint extends ConcurrentWebSocketHandl
 
     @Override
     public void onError(WebSocketSession session, Throwable throwable) throws Exception {
+        log.info("websocket onError: {}", session);
         WebSocketLogger.transportError(getChargeBoxId(session), session, throwable);
     }
 
