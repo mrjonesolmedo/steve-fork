@@ -97,7 +97,7 @@ public class OcppWebSocketHandshakeHandler implements HandshakeHandler {
             // response.setStatusCode(HttpStatus.BAD_REQUEST);
             // return false;
             log.warn("No protocol (OCPP version) is specified. Hardcoding to ocpp1.6");
-            requestedProtocols.add("ocpp1.6");
+            requestedProtocols = new ArrayList<>(Arrays.asList("ocpp1.6"));
             log.info("requestedProtocols: {}", requestedProtocols);
         }
 
