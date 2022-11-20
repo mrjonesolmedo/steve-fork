@@ -38,6 +38,7 @@ import org.springframework.web.socket.SubProtocolCapable;
 import org.springframework.web.socket.TextMessage;
 import org.springframework.web.socket.WebSocketMessage;
 import org.springframework.web.socket.WebSocketSession;
+import lombok.extern.slf4j.Slf4j;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -53,6 +54,7 @@ import java.util.function.Consumer;
  * @author Sevket Goekay <sevketgokay@gmail.com>
  * @since 17.03.2015
  */
+@Slf4j
 public abstract class AbstractWebSocketEndpoint extends ConcurrentWebSocketHandler implements SubProtocolCapable {
 
     @Autowired private ScheduledExecutorService service;
