@@ -36,6 +36,7 @@ import org.springframework.web.socket.server.support.DefaultHandshakeHandler;
 
 import java.util.List;
 import java.util.Map;
+import java.util.Arrays;
 import java.util.Optional;
 
 import static de.rwth.idsg.steve.utils.StringUtils.getLastBitFromUrl;
