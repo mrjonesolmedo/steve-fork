@@ -68,6 +68,7 @@ public class OcppWebSocketHandshakeHandler implements HandshakeHandler {
         // -------------------------------------------------------------------------
         // 1. Check the chargeBoxId
         // -------------------------------------------------------------------------
+        log.info("doHandshake request: {}", request);
 
         String chargeBoxId = getLastBitFromUrl(request.getURI().getPath());
         Optional<RegistrationStatus> status = chargePointHelperService.getRegistrationStatus(chargeBoxId);
