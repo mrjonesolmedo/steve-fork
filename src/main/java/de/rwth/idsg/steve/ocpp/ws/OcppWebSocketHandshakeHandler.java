@@ -89,6 +89,7 @@ public class OcppWebSocketHandshakeHandler implements HandshakeHandler {
         // -------------------------------------------------------------------------
 
         List<String> requestedProtocols = new WebSocketHttpHeaders(request.getHeaders()).getSecWebSocketProtocol();
+        log.info("requestedProtocols: {}", requestedProtocols);
 
         if (CollectionUtils.isEmpty(requestedProtocols)) {
             log.error("No protocol (OCPP version) is specified.");
